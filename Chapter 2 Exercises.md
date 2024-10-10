@@ -1,3 +1,11 @@
+## Digital Communications
+
+# Chapter 2: Linear modulations - Exercises
+
+*Academic year 2024-2025*  
+
+---
+
 ## Exercise 3
 
 A 2-PAM constellation is transmitted through the equivalent discrete channel $p[n] = δ[n]+
