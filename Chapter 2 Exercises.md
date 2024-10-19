@@ -258,6 +258,11 @@ channels. The receiver filter will be matched to the transmitter filter.
 Design for Channel 1 the shaping filters at the transmitter and receiver in
 order to get no ISI and the noise at the output of the sampler be white.
 
+> **Answer**
+>
+> As studied, the optimal shaping filter for this baseband channel is a raised
+> cosine filter. It will also ensure the noise is white.
+
 ### Question 8.b
 
 Design for Channel 2 the shaping filters at the transmitter and receiver in
