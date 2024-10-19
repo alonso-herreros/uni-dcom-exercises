@@ -389,3 +389,23 @@ ISI, get the number of symbols $M$ needed to get a binary rate of $19200$ bits p
 > $$
 > M = 2^{R_b/R_s} = 2^{19200/6400} = 2^3 = 8
 > $$
+
+## Exercise 14
+
+### Question 14.a
+
+> **Answer**
+>
+> α=0
+
+### Question 14.b
+
+### Question 14.c
+
+$$
+S(ωj) = \frac{1}{T} S_A (eP{jωT}) |G(jω)|^2
+$$
+
+$$
+P(jω) → \frac{S}{k} P(jω + j \frac{2πk}{T}) = \text{const}
+$$
