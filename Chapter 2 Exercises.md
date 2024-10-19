@@ -272,12 +272,12 @@ order to get no ISI.
 >
 > $$
 > |H_2(jω)| = \begin{cases}
->     \frac{C}{2} + \frac{C|ω|}{2W} & |ω| < W \\
+>     \frac{C}{2} + \frac{C|ω|}{2W} & |ω| < \frac{W}{2} \\
 >     0 & \text{otherwise}
 > \end{cases}
 > $$
 >
-> Where $W = 2π ⋅ 9 ⋅ 10^3$
+> Where $W = 2⋅2π⋅9⋅10^3$
 >
 > This channel's frequency response is more complicated, but we can make it
 > work. Let's check the Nyquist criteria for zero ISI in the frequency domain
@@ -325,6 +325,17 @@ to get white noise at the output of the sampler.
 ### Question 8.d
 
 Get the maximum symbol rate in both channels
+
+> **Answer**
+>
+> Both channels have the same bandwidth, their distortion is just different.
+> This bandwidth is $W = 2⋅2π⋅9⋅10^3 \frac{\text{rad}}{\text{s}}$. The
+> theoretical maximum symbol rate is obtained by setting the symbol period to
+> the inverse of the bandwidth:
+> $$
+>
+> R_s = \frac{1}{T} = W_{Hz} = 2⋅9⋅10^3 = 18 \text{MBd}
+> $$
 
 ## Exercise 11
 
