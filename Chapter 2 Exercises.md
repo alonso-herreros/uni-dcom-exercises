@@ -246,6 +246,32 @@ Calculate the probability of error $P_e$
 > P_e = \frac12 · P_e \big|_{A[n]=1} + \frac12 · P_e \big|_{A[n]=-1}
 > $$
 
+## Exercise 8
+
+A baseband transmission system sends the modulated signal through one of these
+channels. The receiver filter will be matched to the transmitter filter.
+
+![Channels](img/Ch2.8.1.png)
+
+### Question 8.a
+
+Design for Channel 1 the shaping filters at the transmitter and receiver in
+order to get no ISI and the noise at the output of the sampler be white.
+
+### Question 8.b
+
+Design for Channel 2 the shaping filters at the transmitter and receiver in
+order to get no ISI.
+
+### Question 8.c
+
+Design for Canal 2 the shaping filters at the transmitter and receiver in order
+to get white noise at the output of the sampler.
+
+### Question 8.d
+
+Get the maximum symbol rate in both channels
+
 ## Exercise 11
 
 A communication system uses a squared-root raised cosine filter (SR-RCF) in the transmitter for a
