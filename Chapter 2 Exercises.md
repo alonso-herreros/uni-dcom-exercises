@@ -314,6 +314,14 @@ order to get no ISI.
 Design for Canal 2 the shaping filters at the transmitter and receiver in order
 to get white noise at the output of the sampler.
 
+> **Answer**
+>
+> In order to get white noise at the output of the sampler, we just need to
+> ensure that its PSD after the matched filter and periodic sampling stays
+> constant. This can be achieved by using a raised cosine filter as the shaping
+> filter and matching it at the receiver. This will ensure that the noise is
+> white, but there will inevitably be ISI.
+
 ### Question 8.d
 
 Get the maximum symbol rate in both channels
