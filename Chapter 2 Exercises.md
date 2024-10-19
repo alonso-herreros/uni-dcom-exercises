@@ -268,6 +268,47 @@ order to get no ISI and the noise at the output of the sampler be white.
 Design for Channel 2 the shaping filters at the transmitter and receiver in
 order to get no ISI.
 
+> **Answer**
+>
+> $$
+> |H_2(jω)| = \begin{cases}
+>     \frac{C}{2} + \frac{C|ω|}{2W} & |ω| < W \\
+>     0 & \text{otherwise}
+> \end{cases}
+> $$
+>
+> Where $W = 2π ⋅ 9 ⋅ 10^3$
+>
+> This channel's frequency response is more complicated, but we can make it
+> work. Let's check the Nyquist criteria for zero ISI in the frequency domain
+>
+> $$
+> \frac{1}{T} ∑_k P\left(jω - \frac{2π}{T} k\right) = \text{const}
+> $$
+>
+> Where
+>
+> $$
+> P(jω) = |G(jω) ⋅ H(jω) ⋅ F(jω)|^2
+> $$
+>
+> Given that we're using matched filters, this can be rewritten as
+>
+> $$
+> \begin{aligned}
+>     P(jω) &= G(jω) ⋅ H(jω) ⋅ G^*(jω) \\
+>     &= |G(jω)|^2 H(jω)
+> \end{aligned}
+> $$
+>
+> And since we want $P(jω)$ to be a raised cosine, we can find $G(jω)$ as
+>
+> $$
+> G(jω) = \sqrt{\frac{P(jω)}{H(jω)}}
+> $$
+>
+> Where $P(jω)$ has a raised cosine shape.
+
 ### Question 8.c
 
 Design for Canal 2 the shaping filters at the transmitter and receiver in order
