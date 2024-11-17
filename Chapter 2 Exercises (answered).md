@@ -1,8 +1,26 @@
-## Digital Communications
+## Digital Communications <!-- omit in toc -->
 
 # Chapter 2: Linear modulations - Exercises
 
 *Academic year 2024-2025*  
+
+---
+
+* [Exercise 3](#exercise-3)
+* [Exercise 7](#exercise-7)
+    * [Question 7.a](#question-7a)
+    * [Question 7.b](#question-7b)
+    * [Question 7.c](#question-7c)
+* [Exercise 8](#exercise-8)
+    * [Question 8.a](#question-8a)
+    * [Question 8.b](#question-8b)
+    * [Question 8.c](#question-8c)
+    * [Question 8.d](#question-8d)
+* [Exercise 11](#exercise-11)
+    * [Question 11.a](#question-11a)
+    * [Question 11.b](#question-11b)
+    * [Question 11.c](#question-11c)
+    * [Question 11.d](#question-11d)
 
 ---
 

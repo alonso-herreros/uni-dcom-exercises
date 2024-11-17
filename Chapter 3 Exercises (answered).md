@@ -1,8 +1,23 @@
-## Digital Communications
+## Digital Communications <!-- omit in toc -->
 
 # Chapter 3 Exercises
 
 *Academic year 2024-2025*  
+
+---
+
+* [Exercise 1](#exercise-1)
+    * [Question 1.1](#question-11)
+    * [Question 1.2](#question-12)
+* [Exercise 3](#exercise-3)
+    * [Question 3.a)](#question-3a)
+    * [Question 3.b)](#question-3b)
+    * [Question 3.c)](#question-3c)
+* [Exercise 4](#exercise-4)
+    * [Question 4.c)](#question-4c)
+    * [Question 4.d)](#question-4d)
+* [Exercise 13](#exercise-13)
+    * [Question 13.6](#question-136)
 
 ---
 
