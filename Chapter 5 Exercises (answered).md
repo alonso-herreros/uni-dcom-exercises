@@ -302,16 +302,18 @@ Get the analytic expression of the power spectral density of the baseband
 signal, $S_s(jω)$, if the filter used at chip time is $g_c(t) =
 \frac{1}{\sqrt{T_c}}\mathrm{sinc} \left(\frac{t}{T_c}\right)$
 
-$$
-S_s(jω) = \frac{1}{T} E_s \left|X(e^{jωT_c})\right|^2 |G_c(jω)|^2
-$$
-
-Where
-
-$$
-X_(e^{jωT_c}) = ∑_{m=0}^{N-1} x[m] e^{-jωT_c m} \\
-\left|X(e^{jωT_c})\right|^2 = \left(1-2\cos (ωT_c) + 2 \cos (2ωT_c)\right)^2
-$$
+> **Answer**
+>
+> $$
+> S_s(jω) = \frac{1}{T} E_s \left|X(e^{jωT_c})\right|^2 |G_c(jω)|^2
+> $$
+>
+> Where
+>
+> $$
+> X_(e^{jωT_c}) = ∑_{m=0}^{N-1} x[m] e^{-jωT_c m} \\
+> \left|X(e^{jωT_c})\right|^2 = \left(1-2\cos (ωT_c) + 2 \cos (2ωT_c)\right)^2
+> $$
 
 ### Question 5.c
 
