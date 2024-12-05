@@ -7,6 +7,7 @@
 $$
 \global\def\Bar{\overline}
 \global\def\BBar#1{\overline{\overline{#1}}}
+\global\def\BBar#1{\overline{\overline{#1}}}
 $$
 
 ---
@@ -149,3 +150,351 @@ $$
 > >     \bar{s} = \bar{r} ⋅ \BBar{H}^T = 0100 \\
 > >     \hat{\bar{c}} = \bar{r} + \bar{e} = 00010111
 > >     $$
+
+## Exercise 5
+Two channel codes will be analyzed
+
+### Section 5.a)
+A linear block code has the following generating matrix
+
+$$
+\BBar{G} = \begin{bmatrix}
+    0 & 1 & a & 0 & b \\
+    c & d & 1 & 1 & 1 \\
+\end{bmatrix}
+$$
+
+#### Question 5.1.i)
+Get $a$, $b$, $c$ and $d$ values to obtain the maximum detection and correction capabilities.
+
+> **Answer** (class notes)
+>
+> To maximize the detection and correction capabilities of a code, we need to
+> maximize the minimum distance of the code. Let's get the codewords:
+>
+> $$
+> \begin{aligned}
+>     \bar{c}_i &= \bar{b}_i ⋅ \BBar{G} \\
+>     \bar{c}_1 &= \bar{b}_1 ⋅ \BBar{G} &= [0\;0] ⋅ \BBar{G} &= [0\; 0\; 0\; 0\; 0] \\
+>     \bar{c}_2 &= \bar{b}_2 ⋅ \BBar{G} &= [0\;1] ⋅ \BBar{G} &= [c\; d\; 1\; 1\; 1] \\
+>     \bar{c}_3 &= \bar{b}_3 ⋅ \BBar{G} &= [1\;0] ⋅ \BBar{G} &= [0\; 1\; a\; 0\; b] \\
+>     \bar{c}_4 &= \bar{b}_4 ⋅ \BBar{G} &= [1\;1] ⋅ \BBar{G} &= [c, 1+d, 1+a, 1, 1+b] \\
+> \end{aligned}
+> $$
+>
+> FINAL:
+>
+> $$
+> \begin{aligned}
+>     a &= 1 \\
+>     b &= 1 \\
+>     c &= 1 \\
+>     d &= 0 \\
+> \end{aligned}
+> $$
+
+#### Question 5.a.ii)
+Obtain the syndrome table and decode the following received words.
+
+$$
+\bar{r}_0 = [10001], \bar{r}_1 = [10011], \bar{r}_2 = [11001]
+$$
+
+> **Answer** (class notes)
+>
+> The decoding process will be done by computing the syndrome of the received
+> word and checking the syndrome table, so first we'll build the syndrome matrix
+>
+> In order to build the syndrome matrix, we need to compute the parity-check
+> matrix $\BBar{H}$ (or its transpose), which is only feasible for us if the
+> generating matrix is in the form
+>
+> $$
+> \BBar{G} = \left[\begin{array}{c:c}
+>         \BBar{I}_{k} & \BBar{P} \\
+>     \end{array}\right] \text{ or } \begin{bmatrix}
+>     \begin{array}{c:c}
+>         \BBar{P} & \BBar{I}_{k} \\
+>     \end{array}
+> \end{bmatrix}
+> $$
+>
+> If we look at our current $\BBar{G}$ matrix, it looks like this:
+>
+> $$
+> \BBar{G} = \begin{bmatrix}
+>     0 & 1 & 1 & 0 & 1 \\
+>     1 & 0 & 1 & 1 & 1 \\
+> \end{bmatrix}
+> $$
+>
+> It currently doesn't look like the form we need, but by inspection we can see
+> that swapping the rows will give us this form:
+>
+> $$
+> \BBar{G} = \left[\begin{array}{cc:}
+>     1 & 0 & 1 & 1 & 1 \\
+>     0 & 1 & 1 & 0 & 1 \\
+> \end{array}\right]
+> $$
+>
+> Which has a $2×2$ identity matrix on the left. If we append a $3×3$ matrix under
+> the right part of the matrix, we will obtain the transpose of the parity-check
+> matrix
+>
+> $$
+> \BBar{H}^T = \begin{bmatrix}
+>     1 & 1 & 1 \\
+>     1 & 0 & 1 \\ \hdashline
+>     1 & 0 & 0 \\
+>     0 & 1 & 0 \\
+>     0 & 0 & 1 \\
+> \end{bmatrix}
+> $$
+>
+> Let's begin our syndrome table
+>
+> | Error pattern $\bar{e}$ | Syndrome $\bar{s} = \bar{e} ⋅ \BBar{H}^T$ |
+> | :---------------------: | :---------------------------------------: |
+> |       `00000`           |                  `000`                    |
+> |       `00001`           |                  `001`                    |
+> |       `00010`           |                  `010`                    |
+> |       `00100`           |                  `100`                    |
+> |       `01000`           |                  `101`                    |
+> |       `10000`           |                  `111`                    |
+> |       `00011`           |                  `011`                    |
+> |       `00110`           |                  `110`                    |
+>
+> Now, we will start decoding the received words. First, we must compute their
+> syndromes
+>
+> $$
+> \begin{aligned}
+>     \bar{r}_0 → \bar{s}_0 &= \bar{r}_0 ⋅ \BBar{H}^T \\
+>     &= [1\; 1\; 0] \\[1em]
+>     \bar{r}_1 → \bar{s}_1 &= \bar{r}_1 ⋅ \BBar{H}^T \\
+>     % &= [10011] ⋅ \BBar{H}^T \\
+>     &= [1\; 0\; 0] \\[1em]
+>     \bar{r}_2 → \bar{s}_2 &= \bar{r}_2 ⋅ \BBar{H}^T \\
+>     &=
+> \end{aligned}
+> $$
+>
+> Then, find the error pattern that produces that syndrome
+>
+> $$
+> \begin{aligned}
+>     \bar{e}_0 &= [0\; 0\; 1\; 1\; 0] \\
+>     \bar{e}_1 &= [0\; 0\; 1\; 0\; 0] \\
+>     \bar{e}_2 &=
+> \end{aligned}
+> $$
+>
+> With the error pattern, estimate the codeword
+>
+> $$
+> \begin{aligned}
+>     \hat{\bar{c}}_0 &= \bar{r}_0 + \bar{e}_0 = [] \\
+>     \hat{\bar{c}}_1 &= \bar{r}_1 + \bar{e}_1 = [10111] \\
+>     \hat{\bar{c}}_2 &= \bar{r}_2 + \bar{e}_2 = [] \\
+> \end{aligned}
+> $$
+>
+> And finally, decode the codeword:
+>
+> $$
+> \begin{aligned}
+>     \hat{\bar{b}}_0 &= \\
+>     \hat{\bar{b}}_1 &= [0\; 1]
+>     \hat{\bar{b}}_2 &= \\
+> \end{aligned}
+> $$
+
+### Section 5.b)
+A convolutional code has the following generating vectors
+
+$$
+g_1^1 = [1\; 1\; 1] \\
+g_2^1 = [1\; 0\; 0]
+$$
+
+The information data are transmitted with a 4-QAM modulation with the following
+binary assignment.
+
+| Symbol | $+1+j$ | $-1-j$ | $+1-j$ | $-1+j$ |
+| :----: | :----: | :----: | :----: | :----: |
+|  Bits  |   11   |   00   |   10   |   01   |
+
+#### Question 5.b.i) ✓
+Get the schematic representation of the encoder, and the trellis diagram.
+
+> **Answer** (class notes)
+>
+> ```mermaid
+> %%{init: {'forceLegacyMathML':'true'} }%%
+> flowchart LR
+> 
+> subgraph SRA
+>     A0[0] ~~~ A1[1] ~~~ A2[2]
+> end
+> 
+> sum1(("$$+$$"))
+> sum2(("$$+$$"))
+> 
+> A0 & A1 & A2 --> sum1
+> A0 ----> sum2
+> ```
+
+#### Question 5.b.ii) ✓
+Encode the information sequence $B^{(0)}[l] = [101100]$ under the assumption
+that the starting state is the zero state, $ψ_0$. Plot the path of the output
+sequence through the trellis diagram.
+
+> **Answer** (class notes)
+>
+> First we'll see all the possible transitions:
+>
+> ```mermaid
+> %%{init: {'forceLegacyMathML':'true'} }%%
+> flowchart LR
+> 
+> subgraph s11 [" "]
+>     s111(["[11]"]); s112((" "))
+> end
+> subgraph s10 [" "]
+>     s101(["[10]"]); s102((" "))
+> end
+> subgraph s01 [" "]
+>     s011(["[01]"]); s012((" "))
+> end
+> subgraph s00 [" "]
+>     s001(["[00]"]); s002((" "))
+> end
+> 
+> s001 --"0 | 00"--> s002
+> s001 --"1 | 11"--> s102
+> 
+> s011 --"0 | 10"--> s002
+> s011 --"1 | 01"--> s102
+> 
+> s101 --"0 | 10"--> s012
+> s101 --"1 | 01"--> s112
+> 
+> s111 --"0 | 00"--> s012
+> s111 --"1 | 11"--> s112
+> ```
+>
+> Then we'll plot the sequence through the trellis diagram
+>
+> ```mermaid
+> %%{init: {'forceLegacyMathML':'true'} }%%
+> flowchart LR
+> subgraph s11 [" "]
+>     s110(["[11]"]) ~~~ s111((" ")) ~~~ s112((" ")) ~~~ s113((" ")) ~~~ s114((" ")) ~~~ s115((" ")) ~~~ s116((" "))
+> end
+> subgraph s10 [" "]
+>     s100(["[10]"]) ~~~ s101((" ")) ~~~ s102((" ")) ~~~ s103((" ")) ~~~ s104((" ")) ~~~ s105((" ")) ~~~ s106((" "))
+> end
+> subgraph s01 [" "]
+>     s010(["[01]"]) ~~~ s011((" ")) ~~~ s012((" ")) ~~~ s013((" ")) ~~~ s014((" ")) ~~~ s015((" ")) ~~~ s016((" "))
+> end
+> subgraph s00 [" "]
+>     s000(["[00]"]) ~~~ s001((" ")) ~~~ s002((" ")) ~~~ s003((" ")) ~~~ s004((" ")) ~~~ s005((" ")) ~~~ s006((" "))
+> end
+> 
+> s001 =="1 | 11"==> s102
+> s102 =="0 | 10"==> s013
+> s013 =="1 | 01"==> s104
+> s104 =="1 | 01"==> s115
+> s115 =="0 | 00"==> s016
+> s016 =="0 | 10"==> s007
+> ```
+
+#### Question 5.b.iii)
+Get the code performance working both with hard and soft decoding.
+
+> **Answer** (class notes)
+
+We must find the minimum distance of the code using another trellis diagram
+
+```mermaid
+%%{init: {'forceLegacyMathML':'true'} }%%
+flowchart LR
+subgraph s11 [" "]
+    s111(["[11]"]); s112((" "))
+end
+subgraph s10 [" "]
+    s101(["[10]"]); s102((" "))
+end
+subgraph s01 [" "]
+    s011(["[01]"]); s012((" "))
+end
+subgraph s00 [" "]
+    s001(["[00]"]); s002((" "))
+end
+```
+
+#### Question 5.b.iv) ✓
+Decode the received sequence
+
+$$
+\bar{r} = [101001010011]
+$$
+
+assuming that $B^{(0)}[l] = 0$ for $l < 0$ and $l ≥ 4$ (i.e. the initial and
+final states are $ψ_0$)
+
+```mermaid
+%%{init: {'forceLegacyMathML':'true'} }%%
+flowchart LR
+subgraph s11 [" "]
+    s110(["[11]"]) ~~~ s111((" ")) ~~~ s112((" ")) ~~~ s113((" ")) ~~~ s114((" ")) ~~~ s115((" ")) ~~~ s116((" "))
+end
+subgraph s10 [" "]
+    s100(["[10]"]) ~~~ s101((" ")) ~~~ s102((" ")) ~~~ s103((" ")) ~~~ s104((" ")) ~~~ s105((" ")) ~~~ s106((" "))
+end
+subgraph s01 [" "]
+    s010(["[01]"]) ~~~ s011((" ")) ~~~ s012((" ")) ~~~ s013((" ")) ~~~ s014((" ")) ~~~ s015((" ")) ~~~ s016((" "))
+end
+subgraph s00 [" "]
+    s000(["[00]"]) ~~~ s001((" ")) ~~~ s002((" ")) ~~~ s003((" ")) ~~~ s004((" ")) ~~~ s005((" ")) ~~~ s006((" "))
+end
+
+s000 --"1"--> s001((1))
+s000 =="1"==> s101((1))
+
+s001 --"1"--> s002((2))
+s001 --"1"--> s102((2))
+s101 =="0"==> s012((1))
+s101 --"2"--> s112((3))
+
+s002 --"1"--> s003((3))
+s002 -."2".-> s103;
+s012 --"2"--> s003((3))
+s012 =="0"==> s103((1))
+s102 --"2"--> s013((4))
+s102 --"0"--> s113((2))
+s112 --"1"--> s013((4))
+s112 -."1".-> s113;
+
+s003 --"1"--> s004((4))
+s003 --"1"--> s104((4))
+s013 -."2".-> s004;
+s013 --"0"--> s104((4))
+s103 --"2"--> s014((3))
+s103 =="0"==> s114((1))
+s113 --"1"--> s014((3))
+s113 -."1".-> s114;
+
+s004 --"0"--> s005((4))
+s014 --"1"--> s005((4))
+s104 -."1".-> s015;
+s114 =="0"==> s015((1))
+
+s005 -."2".-> s006;
+s015 =="1"==> s006((2))
+```
+
+$$
+\{\hat{B}[n]\}_{n=0}^{5} = \{1\; 0\; 1\; 1\; 0\; 0\}
+$$
