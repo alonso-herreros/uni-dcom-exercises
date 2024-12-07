@@ -17,7 +17,7 @@ I whish this worked when exported
 
 * [Exercise 1 ✓](#exercise-1-)
 * [Exercise 5.a)](#exercise-5a)
-    * [Question 5.1.i) ✓](#question-51i-)
+    * [Question 5.a.i) ✓](#question-5ai-)
     * [Question 5.a.ii)](#question-5aii)
 * [Exercise 5.b)](#exercise-5b)
     * [Question 5.b.i) ✓](#question-5bi-)
